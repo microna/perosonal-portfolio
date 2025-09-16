@@ -6,7 +6,7 @@ import TestimonialCard from "../components/TestimonialCard";
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" class="flex-center relative md:p-0 px-5">
+    <section id="testimonials" className="flex-center relative md:p-0 px-5">
       <GradientSpheres
         sphere1Class={"testimonial-gradient-sphere testimonial-sphere-1"}
         sphere2Class={"testimonial-gradient-sphere testimonial-sphere-2"}

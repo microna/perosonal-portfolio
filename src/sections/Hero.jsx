@@ -12,7 +12,7 @@ const Hero = () => {
       <div className="w-full h-full flex-center">
         <div className="container relative w-full h-full">
           <div className="md:mt-40 mt-20">
-            <p className="font-medium md:text-2xl text-base">Hey I'm here</p>
+            <p className="font-medium md:text-2xl text-base">Hey I'm here 😎</p>
             <h1 className="font-bold md:text-9xl text-5xl">Stas Shokarev</h1>
             <h1 className="font-bold md:text-9xl text-5xl">Creative</h1>
           </div>
