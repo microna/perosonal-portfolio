@@ -4,6 +4,7 @@ import About from "./sections/About";
 import TechStack from "./sections/TechStack";
 import Projects from "./sections/Projects";
 import Tesrimnials from "./sections/Testimonials";
+import Contact from "./sections/Contact";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <TechStack />
       <Projects />
       <Tesrimnials />
+      <Contact />
     </div>
   );
 };

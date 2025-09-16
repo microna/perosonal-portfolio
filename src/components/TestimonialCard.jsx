@@ -1,6 +1,7 @@
 const TestimonialCard = ({ testimonial }) => {
   return (
     <div className="col-span-1 p-10 bg-black-300 rounded-xl testimonial-card">
+    
       <div className="flex items-center justify-between">
         <img
           src={testimonial.imgPath}

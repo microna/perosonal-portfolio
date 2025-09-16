@@ -19,7 +19,7 @@ const Testimonials = () => {
           text={"Mu Go-To Tools for Crafting Excellence"}
         />
         <div className="mt-20">
-          <div className="grid md:grid-col-2 gap-5">
+          <div className="grid md:grid-cols-2 gap-5">
             {testimonials.map((testimonial, index) => (
               <TestimonialCard key={index} testimonial={testimonial} />
             ))}
