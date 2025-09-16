@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@gsap/react": "^2.1.2",
+    "@hookform/resolvers": "^5.2.2",
     "@react-three/drei": "^10.7.5",
     "@react-three/fiber": "^9.3.0",
     "@tailwindcss/vite": "^4.1.13",
@@ -18,8 +20,10 @@
     "gsap": "^3.13.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-hook-form": "^7.62.0",
     "tailwindcss": "^4.1.13",
-    "three": "^0.180.0"
+    "three": "^0.180.0",
+    "zod": "^4.1.8"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
