@@ -54,9 +54,13 @@ const Carousel = () => {
                       </p>
                     </div>
                     <div className="flex-center gap-5">
-                      <p className="text-2xl hidden md:block text-white-50 opacity-80">
-                        Preview Project
-                      </p>
+                      <a
+                        target="_blank"
+                        href={slide.url}
+                        className="text-2xl hidden md:block text-white-50 opacity-80 cursor-pointer hover:opacity-100 transition-all"
+                      >
+                        Visit Site
+                      </a>
                       <img
                         src="/images/arrowupright.svg"
                         alt="arrow"

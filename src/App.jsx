@@ -14,7 +14,7 @@ const App = () => {
       <About />
       <TechStack />
       <Projects />
-      <Tesrimnials />
+      {/* <Tesrimnials /> */}
       <Contact />
       <Footer />
     </div>

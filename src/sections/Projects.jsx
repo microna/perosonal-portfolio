@@ -16,7 +16,7 @@ const Projects = () => {
           <TitleHeader
             title={"MY RECENT PROJECTS"}
             number={"03"}
-            text={"Mu Go-To Tools for Crafting Excellence"}
+            text={"Built with modern tools and best practices"}
           />
         </div>
         <div className="md:mt-20 mt-10">

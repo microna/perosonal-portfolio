@@ -1,6 +1,6 @@
 import { Sparkles } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { AvatarHero } from "./models/AvatarHero";
+import { AvatarHero2 } from "./models/AvatarHero2";
 
 import React from "react";
 
@@ -19,7 +19,7 @@ const HeroExperience = () => {
         scale={[10, 10, 2]}
       />
       <group>
-        <AvatarHero scale={9} position={[0, -15, 0]} />
+        <AvatarHero2 scale={9} position={[0, -15, 0]} />
       </group>
     </Canvas>
   );

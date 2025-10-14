@@ -3,8 +3,6 @@ import { useForm } from "react-hook-form";
 import * as Z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import emailjs from "@emailjs/browser";
-import { ca, tr } from "zod/locales";
-import { time } from "three/tsl";
 import { useState } from "react";
 
 const ContactForm = () => {
@@ -79,7 +77,7 @@ const ContactForm = () => {
             {...register("name")}
             type="text"
             id="name"
-            placeholder="Tommy"
+            placeholder="Type your name"
             className="bg-black-300 w-full px-4 py-4 font-light md:text-base text-sm placeholder:text-[#fefefe50] rounded-md"
           />
           {errors.name && (
@@ -97,7 +95,7 @@ const ContactForm = () => {
             {...register("email")}
             type="text"
             id="email"
-            placeholder="test@test.com"
+            placeholder="Your email"
             className="bg-black-300 w-full px-4 py-4 font-light md:text-base text-sm placeholder:text-[#fefefe50] rounded-md"
           />
           {errors.email && (
@@ -134,7 +132,7 @@ const ContactForm = () => {
             type="text"
             rows={5}
             id="message"
-            placeholder="Tommy"
+            placeholder="Your Message"
             className="bg-black-300 w-full px-4 py-4 font-light md:text-base text-sm placeholder:text-[#fefefe50] rounded-md"
           />
           {errors.message && (

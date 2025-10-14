@@ -10,7 +10,7 @@ const ContactExperience = () => {
       <directionalLight />
       <group>
         <Text3D
-          position={[-2, -3, -5]}
+          position={[-4, -3, -5]}
           curveSegments={32}
           bevelEnabled
           bevelThickness={0.1}
@@ -20,10 +20,10 @@ const ContactExperience = () => {
           size={1.5}
           font={"/fonts/Inter_Bold.json"}
         >
-          {`hello`}
+          {`CHAT`}
           <meshNormalMaterial />
         </Text3D>
-        <ContactAvatar scale={2} position={[-2, -3, -1]} />
+        <ContactAvatar scale={2} position={[1, -3, -1]} />
       </group>
     </Canvas>
   );

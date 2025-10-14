@@ -1,3 +1,5 @@
+// import { url } from "zod";
+
 const navItems = [
   {
     name: "Home",
@@ -24,30 +26,30 @@ const navItems = [
 const bentoSocialLinks = [
   {
     name: "Facebook",
-    href: "https://www.facebook.com/",
+    url: "https://www.facebook.com/profile.php?id=100008162225927",
     icon: "/images/fb.svg",
   },
   {
     name: "Instagram",
-    href: "https://www.facebook.com/",
+    url: "https://www.instagram.com/stas__shok/",
     icon: "/images/insta.svg",
   },
   {
     name: "LinkedIn",
-    href: "https://www.facebook.com/",
+    url: "https://www.linkedin.com/in/stanislav-shokarev-363106193/",
     icon: "/images/linkedin.svg",
   },
   {
     name: "WhatsApp",
-    href: "https://www.facebook.com/",
+    url: "https://wa.me/380631013389",
     icon: "/images/whatsapp.svg",
   },
 ];
 
 const iconsList = [
   {
-    name: "html",
-    image: "/images/html.svg",
+    name: "docker",
+    image: "/images/docker.svg",
   },
   {
     name: "css",
@@ -58,13 +60,14 @@ const iconsList = [
     image: "/images/js.svg",
   },
   {
+    name: "wordpress",
+    image: "/images/wordpress.svg",
+  },
+  {
     name: "react",
     image: "/images/react.svg",
   },
-  {
-    name: "typescript",
-    image: "/images/ts.svg",
-  },
+
   {
     name: "github",
     image: "/images/github.svg",
@@ -74,54 +77,61 @@ const iconsList = [
     image: "/images/gsap.svg",
   },
   {
-    name: "threejs",
-    image: "/images/threejs.svg",
+    name: "tailwind",
+    image: "/images/tailwind.svg",
   },
   {
     name: "figma",
     image: "/images/figma.svg",
   },
   {
-    name: "aws",
-    image: "/images/aws.svg",
+    name: "linux",
+    image: "/images/linux.svg",
   },
 ];
 
 const slides = [
   {
     id: 1,
-    title: "Sofi",
+    title: "Skarper",
     img: "/images/p1.png",
+    url: "https://www.skarper.com/",
   },
   {
     id: 2,
-    title: "Jasmina",
+    title: "KPK Financial",
     img: "/images/p2.png",
+    url: "https://www.kpkfinancial.co.uk/",
   },
   {
     id: 3,
-    title: "d.tampe",
+    title: "Andre Smith Portfolio",
     img: "/images/p3.png",
+    url: "https://playground.andresmith.co.uk/",
   },
   {
     id: 4,
-    title: "Blimp.gr",
+    title: "Ben Martindale Coaching",
     img: "/images/p4.png",
+    url: "https://bmpcoaching.com/",
   },
   {
     id: 5,
-    title: "Hawk Style Design",
+    title: "Eldin Riks Webflow Website",
     img: "/images/p5.png",
+    url: "https://eldinrisk.com/",
   },
   {
     id: 6,
-    title: "Lewis",
+    title: "Squarebook",
     img: "/images/p6.png",
+    url: "https://www.squarebook.com/",
   },
   {
     id: 7,
-    title: "Sofi",
+    title: "Skarper",
     img: "/images/p1.png",
+    url: "https://www.skarper.com/",
   },
 ];
 
@@ -159,22 +169,22 @@ const testimonials = [
 const footerIconsList = [
   {
     name: "Facebook",
-    href: "https://www.facebook.com/",
+    url: "https://www.facebook.com/profile.php?id=100008162225927",
     icon: "/images/b-fb.svg",
   },
   {
     name: "Instagram",
-    href: "https://www.facebook.com/",
+    url: "https://www.instagram.com/stas__shok/",
     icon: "/images/b-insta.svg",
   },
   {
     name: "LinkedIn",
-    href: "https://www.facebook.com/",
+    url: "https://www.linkedin.com/in/stanislav-shokarev-363106193/",
     icon: "/images/b-linked.svg",
   },
   {
     name: "WhatsApp",
-    href: "https://www.facebook.com/",
+    url: "https://wa.me/380631013389",
     icon: "/images/b-whatsapp.svg",
   },
 ];

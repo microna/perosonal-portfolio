@@ -12,14 +12,14 @@ const Hero = () => {
       <div className="w-full h-full flex-center">
         <div className="container relative w-full h-full">
           <div className="md:mt-40 mt-20">
-            <p className="font-medium md:text-2xl text-base">Hey I'm here 😎</p>
+            <p className="font-medium md:text-2xl text-base">Hey ✌️</p>
             <h1 className="font-bold md:text-9xl text-5xl">Stas Shokarev</h1>
-            <h1 className="font-bold md:text-9xl text-5xl">Creative</h1>
+            <h1 className="font-bold md:text-9xl text-5xl">Fullstack</h1>
           </div>
           <div className="absolute w-full z-30 bottom-20 right-0">
             <div className="flex justify-between items-end">
               <div className="flex flex-col items-center md:gap-5 gap-1">
-                <p className="md:text-base text-xs">Explore</p>
+                {/* <p className="md:text-base text-xs">Explore</p> */}
                 <img
                   className="size-7 animate-bounce"
                   src="images/arrowdown.svg"
@@ -27,8 +27,8 @@ const Hero = () => {
                 />
               </div>
               <div className="flex flex-col items-end">
-                <img src="images/shape.svg" alt="shape" />
-                <h1 className="font-bold md:text-9xl text-5xl">Developing</h1>
+                {/* <img src="images/shape.svg" alt="shape" /> */}
+                <h1 className="font-bold md:text-9xl text-5xl">Developer</h1>
               </div>
             </div>
           </div>

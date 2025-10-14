@@ -11,11 +11,13 @@ const Footer = () => {
             key={index}
             className="cursor-pointer hover:-translate-y-5 transition-all duration-300"
           >
-            <img
-              src={icon.icon}
-              alt={icon.name}
-              className="md:size-10 size-8 "
-            />
+            <a href={icon.url} target="_blank" rel="noreferrer">
+              <img
+                src={icon.icon}
+                alt={icon.name}
+                className="md:size-10 size-8 "
+              />
+            </a>
           </div>
         ))}
       </div>

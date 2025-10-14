@@ -5,24 +5,54 @@ Files: boy.glb [1.08MB] > /Users/hsuwinlatt/Desktop/Work/Fullstack Empire/Youtub
 */
 
 import { useGraph } from "@react-three/fiber";
-import { useAnimations, useFBX, useGLTF } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import { SkeletonUtils } from "three-stdlib";
 import { useEffect, useMemo, useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { useState } from "react";
+import * as THREE from "three";
 
-export function ContactAvatar(props) {
+export function AvatarHero2(props) {
   const group = useRef();
 
   const { scene } = useGLTF("/models/avatar2-transformed.glb");
   const clone = useMemo(() => SkeletonUtils.clone(scene), [scene]);
   const { nodes, materials } = useGraph(clone);
 
-  const { animations } = useFBX("/models/Breakdance2.fbx");
-  animations[0].name = "Dance";
-  const action = useAnimations(animations, group);
+  const mouse = useRef(new THREE.Vector2());
 
-  useEffect(() => {
-    action.actions["Dance"].play();
-  }, []);
+  const [isIntroAnimationDone, setIsIntroAnimationDone] = useState(false);
+
+  useGSAP(() => {
+    if (!isIntroAnimationDone) {
+      gsap.fromTo(
+        group.current.rotation,
+        { y: Math.PI },
+        {
+          y: 0,
+          delay: 0.5,
+          duration: 1.5,
+          ease: "expo.inOut",
+          onComplete: () => setIsIntroAnimationDone(true),
+        }
+      );
+    }
+
+    if (isIntroAnimationDone) {
+      const handleMouseMove = (event) => {
+        const { innerWidth, innerHeight } = window;
+        mouse.current.x = (event.clientX / innerWidth) * 2 - 1;
+        mouse.current.y = -(event.clientY / innerHeight) * 2 + 1;
+
+        const target = new THREE.Vector3(mouse.current.x, mouse.current.y, 1);
+        group.current.getObjectByName("Head")?.lookAt(target);
+        group.current.rotation.y = target.x * 0.5;
+      };
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => window.removeEventListener("mousemove", handleMouseMove);
+    }
+  }, [isIntroAnimationDone]);
 
   return (
     <group {...props} ref={group} dispose={null}>
