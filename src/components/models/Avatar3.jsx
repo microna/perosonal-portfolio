@@ -16,7 +16,7 @@ import * as THREE from "three";
 export function AvatarHero2(props) {
   const group = useRef();
 
-  const { scene } = useGLTF("/models/avatar2-transformed.glb");
+  const { scene } = useGLTF("/models/avatar3-transformed.glb");
   const clone = useMemo(() => SkeletonUtils.clone(scene), [scene]);
   const { nodes, materials } = useGraph(clone);
 
@@ -25,7 +25,7 @@ export function AvatarHero2(props) {
   const [isIntroAnimationDone, setIsIntroAnimationDone] = useState(false);
 
   useGSAP(() => {
-    if (!isIntroAnimationDone) {
+    if (!isIntroAnimationDone && group.current) {
       gsap.fromTo(
         group.current.rotation,
         { y: Math.PI },
@@ -46,14 +46,13 @@ export function AvatarHero2(props) {
         mouse.current.y = -(event.clientY / innerHeight) * 2 + 1;
 
         const target = new THREE.Vector3(mouse.current.x, mouse.current.y, 1);
-        group.current.getObjectByName("Head")?.lookAt(target);
+        group.current.getObjectByName("Wolf3D_Head")?.lookAt(target);
         group.current.rotation.y = target.x * 0.5;
       };
       window.addEventListener("mousemove", handleMouseMove);
       return () => window.removeEventListener("mousemove", handleMouseMove);
     }
   }, [isIntroAnimationDone]);
-
   return (
     <group {...props} ref={group} dispose={null}>
       <primitive object={nodes.Hips} />
@@ -68,6 +67,11 @@ export function AvatarHero2(props) {
         skeleton={nodes.Wolf3D_Glasses.skeleton}
       />
       <skinnedMesh
+        geometry={nodes.Wolf3D_Outfit_Top.geometry}
+        material={materials.Wolf3D_Outfit_Top}
+        skeleton={nodes.Wolf3D_Outfit_Top.skeleton}
+      />
+      <skinnedMesh
         geometry={nodes.Wolf3D_Outfit_Bottom.geometry}
         material={materials.Wolf3D_Outfit_Bottom}
         skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton}
@@ -78,9 +82,9 @@ export function AvatarHero2(props) {
         skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton}
       />
       <skinnedMesh
-        geometry={nodes.Wolf3D_Outfit_Top.geometry}
-        material={materials.Wolf3D_Outfit_Top}
-        skeleton={nodes.Wolf3D_Outfit_Top.skeleton}
+        geometry={nodes.Wolf3D_Body.geometry}
+        material={materials.Wolf3D_Body}
+        skeleton={nodes.Wolf3D_Body.skeleton}
       />
       <skinnedMesh
         name="EyeLeft"
@@ -114,37 +118,8 @@ export function AvatarHero2(props) {
         morphTargetDictionary={nodes.Wolf3D_Teeth.morphTargetDictionary}
         morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
       />
-      {/* Add body parts if they exist */}
-      {nodes.Wolf3D_Body && (
-        <skinnedMesh
-          geometry={nodes.Wolf3D_Body.geometry}
-          material={materials.Wolf3D_Skin}
-          skeleton={nodes.Wolf3D_Body.skeleton}
-        />
-      )}
-      {nodes.Wolf3D_Hands && (
-        <skinnedMesh
-          geometry={nodes.Wolf3D_Hands.geometry}
-          material={materials.Wolf3D_Skin}
-          skeleton={nodes.Wolf3D_Hands.skeleton}
-        />
-      )}
-      {nodes.Wolf3D_Arms && (
-        <skinnedMesh
-          geometry={nodes.Wolf3D_Arms.geometry}
-          material={materials.Wolf3D_Skin}
-          skeleton={nodes.Wolf3D_Arms.skeleton}
-        />
-      )}
-      {nodes.Wolf3D_Legs && (
-        <skinnedMesh
-          geometry={nodes.Wolf3D_Legs.geometry}
-          material={materials.Wolf3D_Skin}
-          skeleton={nodes.Wolf3D_Legs.skeleton}
-        />
-      )}
     </group>
   );
 }
 
-useGLTF.preload("/models/avatar2-transformed.glb");
+useGLTF.preload("/models/avatar3-transformed.glb");

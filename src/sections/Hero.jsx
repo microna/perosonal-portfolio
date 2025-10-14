@@ -20,11 +20,13 @@ const Hero = () => {
             <div className="flex justify-between items-end">
               <div className="flex flex-col items-center md:gap-5 gap-1">
                 {/* <p className="md:text-base text-xs">Explore</p> */}
+                <a className="cursor-pointer" href="#about">
                 <img
                   className="size-7 animate-bounce"
-                  src="images/arrowdown.svg"
-                  alt="arrowdown"
-                />
+                    src="images/arrowdown.svg"
+                    alt="arrowdown"
+                  />
+                </a>
               </div>
               <div className="flex flex-col items-end">
                 {/* <img src="images/shape.svg" alt="shape" /> */}
