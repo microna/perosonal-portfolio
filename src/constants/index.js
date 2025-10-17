@@ -25,9 +25,9 @@ const navItems = [
 
 const bentoSocialLinks = [
   {
-    name: "Facebook",
-    url: "https://www.facebook.com/profile.php?id=100008162225927",
-    icon: "/images/fb.svg",
+    name: "GitHub",
+    url: "https://github.com/microna",
+    icon: "/images/github.svg",
   },
   {
     name: "Instagram",

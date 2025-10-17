@@ -5,12 +5,12 @@ import { iconsList } from "../constants";
 const TechStack = () => {
   return (
     <div className="w-full h-full">
-      <div className="">
-        <div className="container mx-auto md:p-0 px-0">
+      <div className="w-full md:my-40 my-20">
+        <div className="container mx-auto md:p-0 px-5">
           <TitleHeader
-            title={"MY TECH STACK"}
-            number={"02"}
-            text={"Mu Go-To Tools for Crafting Excellence"}
+            title="TECH STACK"
+            number="02"
+            text="My Go-To Tools for Crafting Solutions"
           />
         </div>
         <div className="md:mt-20 mt-10 relative">
