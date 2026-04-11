@@ -105,15 +105,15 @@ const slides = [
   },
   {
     id: 3,
-    title: "Andre Smith Portfolio",
-    img: "/images/p3.png",
-    url: "https://playground.andresmith.co.uk/",
+    title: "Koskin Ecommerce",
+    img: "/images/p7.png",
+    url: "https://koskn.com/",
   },
   {
     id: 4,
-    title: "Ben Martindale Coaching",
-    img: "/images/p4.png",
-    url: "https://bmpcoaching.com/",
+    title: "Andre Smith Portfolio",
+    img: "/images/p3.png",
+    url: "https://playground.andresmith.co.uk/",
   },
   {
     id: 5,
