@@ -76,7 +76,7 @@ const About = () => {
               </div>
             </div>
             <div className="md:col-span-5 col-span-12 row-span-5">
-              <div className="bg-[#8f0080]  hover:cursor-grab rounded-2xl w-full md:h-full h-60">
+              <div className="bg-[#120827] hover:cursor-grab rounded-2xl w-full md:h-full h-60 border border-white/5">
                 <div className="w-full h-full">
                   <Canvas>
                     <ambientLight intensity={0.3} />
@@ -86,7 +86,7 @@ const About = () => {
                       penumbra={1}
                       intensity={10}
                       castShadow
-                      color="#8f0080"
+                      color="#6d28d9"
                     />
                     <spotLight
                       position={[-5, 5, -5]}
@@ -94,12 +94,12 @@ const About = () => {
                       penumbra={1}
                       intensity={100}
                       castShadow
-                      color="#8f0080"
+                      color="#6d28d9"
                     />
                     <pointLight
                       position={[0, -5, 0]}
                       intensity={0.5}
-                      color="#8f0080"
+                      color="#6d28d9"
                     />
                     <OrbitControls
                       enableZoom={false}

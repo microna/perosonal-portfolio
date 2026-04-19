@@ -37,7 +37,7 @@
   --color-white-50: #fdfdfd;
   --color-black-100: #0b0620;
   --color-black-300: #17151f;
-  --color-pink-100: #ff28d5;
+  --color-pink-100: #7c3aed;
 }
 
 html,
@@ -109,7 +109,7 @@ section {
   }
 
   .sphere-1 {
-    background: radial-gradient(circle, #ff28d5, #ff28d5);
+    background: radial-gradient(circle, #6d28d9, #6d28d9);
     top: -100px;
     left: 300px;
     animation: wander-left 10s ease-in-out infinite;
@@ -132,7 +132,7 @@ section {
   }
 
   .about-sphere-1 {
-    background: radial-gradient(circle, #ff28d5, #ff28d5);
+    background: radial-gradient(circle, #6d28d9, #6d28d9);
     bottom: 300px;
     right: 150px;
     animation: wander-left 10s ease-in-out infinite;
@@ -210,7 +210,7 @@ section {
   }
 
   .projects-sphere-1 {
-    background: radial-gradient(circle, #ff28d5, #ff28d5);
+    background: radial-gradient(circle, #6d28d9, #6d28d9);
     top: 300px;
     left: 50px;
   }
@@ -248,7 +248,7 @@ section {
   }
 
   .testimonial-sphere-1 {
-    background: radial-gradient(circle, #ff28d5, #ff28d5);
+    background: radial-gradient(circle, #6d28d9, #6d28d9);
     bottom: 300px;
     right: 100px;
   }

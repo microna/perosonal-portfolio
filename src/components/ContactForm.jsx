@@ -1,36 +1,40 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import * as Z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
 
-const ContactForm = () => {
-  const initialValues = {
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  };
+const contactFormSchema = Z.object({
+  name: Z.string().nonempty("Name is required"),
+  email: Z.string().email("Invalid email").nonempty("Email is required"),
+  subject: Z.string().nonempty("Subject is required"),
+  message: Z.string().nonempty("Message is required"),
+});
 
-  const contactFormSchema = Z.object({
-    name: Z.string().nonempty("Name is required"),
-    email: Z.string().email("Invalid email").nonempty("Email is required"),
-    subject: Z.string().nonempty("Subject is required"),
-    message: Z.string().nonempty("Message is required"),
-  });
+const initialValues = { name: "", email: "", subject: "", message: "" };
+
+const inputClass =
+  "w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-blue-50/60 focus:bg-white/8 transition-all duration-200";
+
+const Field = ({ label, error, children }) => (
+  <div className="flex flex-col gap-1.5">
+    <label className="text-white/50 text-xs font-medium uppercase tracking-widest">
+      {label}
+    </label>
+    {children}
+    {error && <p className="text-red-400 text-xs mt-0.5">{error}</p>}
+  </div>
+);
+
+const ContactForm = () => {
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm({
-    defaultValues: initialValues,
-    resolver: zodResolver(contactFormSchema),
-  });
-
-  const [loading, setLoading] = useState(false);
+  } = useForm({ defaultValues: initialValues, resolver: zodResolver(contactFormSchema) });
 
   const onSubmit = async (data) => {
     setLoading(true);
@@ -42,15 +46,13 @@ const ContactForm = () => {
         message: data.message,
         time: new Date().toLocaleString(),
       };
-      const serviceID = import.meta.env.VITE_EMAIL_SERVICE_ID;
-      const templateID = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
-      const userID = import.meta.env.VITE_EMAIL_PUBLIC_KEY;
-
-      await emailjs.send(serviceID, templateID, payload, {
-        publicKey: userID,
-      });
-    } catch (error) {
-      console.error("Failed to send email:", error);
+      await emailjs.send(
+        import.meta.env.VITE_EMAIL_SERVICE_ID,
+        import.meta.env.VITE_EMAIL_TEMPLATE_ID,
+        payload,
+        { publicKey: import.meta.env.VITE_EMAIL_PUBLIC_KEY }
+      );
+    } catch {
       alert("Failed to send message. Please try again later.");
     } finally {
       setLoading(false);
@@ -60,94 +62,46 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="flex-center">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        action=""
-        className="w-full text-[#a7a7a7] flex flex-col gap-7"
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
+      {/* Name + Email row */}
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
+        <Field label="Name" error={errors.name?.message}>
+          <input {...register("name")} type="text" placeholder="Your name" className={inputClass} />
+        </Field>
+        <Field label="Email" error={errors.email?.message}>
+          <input {...register("email")} type="text" placeholder="your@email.com" className={inputClass} />
+        </Field>
+      </div>
+
+      <Field label="Subject" error={errors.subject?.message}>
+        <input {...register("subject")} type="text" placeholder="What's this about?" className={inputClass} />
+      </Field>
+
+      <Field label="Message" error={errors.message?.message}>
+        <textarea
+          {...register("message")}
+          rows={5}
+          placeholder="Tell me about your project..."
+          className={`${inputClass} resize-none`}
+        />
+      </Field>
+
+      <button
+        type="submit"
+        disabled={loading}
+        className="mt-2 w-full py-3.5 rounded-xl font-semibold text-white text-sm flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer active:scale-[0.98] disabled:opacity-60"
+        style={{ background: "linear-gradient(135deg, #1c34ff 0%, #598eff 100%)" }}
       >
-        <div className="">
-          <label
-            htmlFor="name"
-            className="block text-white md:text-2xl font-semibold mb-2"
-          >
-            Name
-          </label>
-          <input
-            {...register("name")}
-            type="text"
-            id="name"
-            placeholder="Type your name"
-            className="bg-black-300 w-full px-4 py-4 font-light md:text-base text-sm placeholder:text-[#fefefe50] rounded-md"
-          />
-          {errors.name && (
-            <p className="text-red-500 mt-1">{errors.name.message}</p>
-          )}
-        </div>
-        <div className="">
-          <label
-            htmlFor="email"
-            className="block text-white md:text-2xl font-semibold mb-2"
-          >
-            Email
-          </label>
-          <input
-            {...register("email")}
-            type="text"
-            id="email"
-            placeholder="Your email"
-            className="bg-black-300 w-full px-4 py-4 font-light md:text-base text-sm placeholder:text-[#fefefe50] rounded-md"
-          />
-          {errors.email && (
-            <p className="text-red-500 mt-1">{errors.email.message}</p>
-          )}
-        </div>{" "}
-        <div className="">
-          <label
-            htmlFor="subject"
-            className="block text-white md:text-2xl font-semibold mb-2"
-          >
-            Subject
-          </label>
-          <input
-            {...register("subject")}
-            type="text"
-            id="subject"
-            placeholder="Your Subject"
-            className="bg-black-300 w-full px-4 py-4 font-light md:text-base text-sm placeholder:text-[#fefefe50] rounded-md"
-          />
-          {errors.subject && (
-            <p className="text-red-500 mt-1">{errors.subject.message}</p>
-          )}
-        </div>{" "}
-        <div className="">
-          <label
-            htmlFor="message"
-            className="block text-white md:text-2xl font-semibold mb-2"
-          >
-            Message
-          </label>
-          <textarea
-            {...register("message")}
-            type="text"
-            rows={5}
-            id="message"
-            placeholder="Your Message"
-            className="bg-black-300 w-full px-4 py-4 font-light md:text-base text-sm placeholder:text-[#fefefe50] rounded-md"
-          />
-          {errors.message && (
-            <p className="text-red-500 mt-1">{errors.message.message}</p>
-          )}
-        </div>
-        <button
-          type="submit"
-          disabled={loading}
-          className="cursor-pointer w-full py-4 bg-blue-50 text-white-50 font-semibold rounded-md hover:bg-blue-600 transition-all duration-300"
-        >
-          {loading ? "Sending..." : "Send Message"}
-        </button>
-      </form>
-    </div>
+        {loading ? (
+          "Sending..."
+        ) : (
+          <>
+            Send Message
+            <img src="/images/arrowupright.svg" alt="" className="size-4 brightness-0 invert" />
+          </>
+        )}
+      </button>
+    </form>
   );
 };
 

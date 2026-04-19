@@ -12,7 +12,7 @@ const Hero = () => {
       <div className="w-full h-full flex-center">
         <div className="container relative w-full h-full">
           <div className="md:mt-40 mt-20">
-            <p className="font-medium md:text-2xl text-base">Hey ✌️</p>
+            <p className="font-medium md:text-2xl text-base">Hello,</p>
             <h1 className="font-bold md:text-9xl text-5xl">Stas Shokarev</h1>
             <h1 className="font-bold md:text-9xl text-5xl">Fullstack</h1>
           </div>
@@ -39,6 +39,10 @@ const Hero = () => {
       <div className="w-full h-full absolute inset-0">
         <HeroExperience />
       </div>
+      <div
+        className="absolute bottom-0 left-0 w-full h-96 z-10 pointer-events-none"
+        style={{ background: "linear-gradient(to top, #0b0620 30%, transparent 100%)" }}
+      />
     </section>
   );
 };

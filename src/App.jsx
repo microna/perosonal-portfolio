@@ -1,23 +1,25 @@
-import React from "react";
+import { useState } from "react";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
 import TechStack from "./sections/TechStack";
 import Projects from "./sections/Projects";
-import Tesrimnials from "./sections/Testimonials";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
+import Preloader from "./components/Preloader";
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
+
   return (
-    <div className="">
+    <>
+      {loading && <Preloader onComplete={() => setLoading(false)} />}
       <Hero />
       <About />
       <TechStack />
       <Projects />
-      {/* <Tesrimnials /> */}
       <Contact />
       <Footer />
-    </div>
+    </>
   );
 };
 
