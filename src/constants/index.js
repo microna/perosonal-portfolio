@@ -105,39 +105,39 @@ const slides = [
   },
   {
     id: 3,
+    title: "Lucidica",
+    img: "/images/lucidica.png",
+    url: "https://lucidica.co.uk",
+  },
+  {
+    id: 4,
+    title: "Seable",
+    img: "/images/seable.png",
+    url: "https://seable.co.uk",
+  },
+  {
+    id: 5,
     title: "Koskin Ecommerce",
     img: "/images/p7.png",
     url: "https://koskn.com/",
   },
   {
-    id: 4,
+    id: 6,
     title: "Andre Smith Portfolio",
     img: "/images/p3.png",
     url: "https://playground.andresmith.co.uk/",
   },
   {
-    id: 5,
+    id: 7,
     title: "Eldin Riks Webflow Website",
     img: "/images/p5.png",
     url: "https://eldinrisk.com/",
   },
   {
-    id: 6,
+    id: 8,
     title: "Squarebook",
     img: "/images/p6.png",
     url: "https://www.squarebook.com/",
-  },
-  {
-    id: 7,
-    title: "Lucidica",
-    img: "/images/lucidica.png",
-    url: "",
-  },
-  {
-    id: 8,
-    title: "Seable",
-    img: "/images/seable.png",
-    url: "",
   },
 ];
 
