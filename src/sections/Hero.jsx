@@ -1,6 +1,7 @@
 import React from "react";
 import GradientSpheres from "../components/GradientSpheres";
 import HeroExperience from "../components/HeroExperience";
+import InkDropCanvas from "../components/InkDropCanvas";
 
 const Hero = () => {
   return (
@@ -39,6 +40,7 @@ const Hero = () => {
       <div className="w-full h-full absolute inset-0">
         <HeroExperience />
       </div>
+      <InkDropCanvas />
       <div
         className="absolute bottom-0 left-0 w-full h-96 z-10 pointer-events-none"
         style={{ background: "linear-gradient(to top, #0b0620 30%, transparent 100%)" }}
