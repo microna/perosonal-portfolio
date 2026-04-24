@@ -26,8 +26,39 @@ const Field = ({ label, error, children }) => (
   </div>
 );
 
+const Toast = ({ status }) => {
+  if (!status) return null;
+
+  const isSuccess = status === "success";
+
+  return (
+    <div
+      className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium border transition-all duration-300"
+      style={
+        isSuccess
+          ? {
+              background: "rgba(89,142,255,0.1)",
+              border: "1px solid rgba(89,142,255,0.3)",
+              color: "#93b4ff",
+            }
+          : {
+              background: "rgba(239,68,68,0.1)",
+              border: "1px solid rgba(239,68,68,0.3)",
+              color: "#fca5a5",
+            }
+      }
+    >
+      <span className="text-base">{isSuccess ? "✓" : "✕"}</span>
+      {isSuccess
+        ? "Message sent — I'll get back to you soon!"
+        : "Something went wrong. Please try again."}
+    </div>
+  );
+};
+
 const ContactForm = () => {
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(null);
 
   const {
     register,
@@ -38,32 +69,31 @@ const ContactForm = () => {
 
   const onSubmit = async (data) => {
     setLoading(true);
+    setStatus(null);
     try {
-      const payload = {
-        title: data.subject,
-        name: data.name,
-        email: data.email,
-        message: data.message,
-        time: new Date().toLocaleString(),
-      };
       await emailjs.send(
         import.meta.env.VITE_EMAIL_SERVICE_ID,
         import.meta.env.VITE_EMAIL_TEMPLATE_ID,
-        payload,
+        {
+          title: data.subject,
+          name: data.name,
+          email: data.email,
+          message: data.message,
+          time: new Date().toLocaleString(),
+        },
         { publicKey: import.meta.env.VITE_EMAIL_PUBLIC_KEY }
       );
+      setStatus("success");
+      reset(initialValues);
     } catch {
-      alert("Failed to send message. Please try again later.");
+      setStatus("error");
     } finally {
       setLoading(false);
-      reset(initialValues);
-      alert("Message sent successfully!");
     }
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
-      {/* Name + Email row */}
       <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
         <Field label="Name" error={errors.name?.message}>
           <input {...register("name")} type="text" placeholder="Your name" className={inputClass} />
@@ -85,6 +115,8 @@ const ContactForm = () => {
           className={`${inputClass} resize-none`}
         />
       </Field>
+
+      <Toast status={status} />
 
       <button
         type="submit"
