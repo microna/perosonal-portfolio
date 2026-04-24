@@ -129,9 +129,15 @@ const slides = [
   },
   {
     id: 7,
-    title: "Skarper",
-    img: "/images/p1.png",
-    url: "https://www.skarper.com/",
+    title: "Lucidica",
+    img: "/images/lucidica.png",
+    url: "",
+  },
+  {
+    id: 8,
+    title: "Seable",
+    img: "/images/seable.png",
+    url: "",
   },
 ];
 
