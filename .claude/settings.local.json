@@ -8,7 +8,8 @@
       "mcp__chrome-devtools__resize_page",
       "mcp__chrome-devtools__list_pages",
       "mcp__chrome-devtools__new_page",
-      "mcp__chrome-devtools__navigate_page"
+      "mcp__chrome-devtools__navigate_page",
+      "Bash(grep -E '\\\\.\\(html|jsx|js|json|txt|xml\\)$')"
     ]
   }
 }

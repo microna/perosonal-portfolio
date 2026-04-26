@@ -52,6 +52,7 @@ const About = () => {
         sphere1Class="about-gradient-sphere about-sphere-1"
         sphere2Class="about-gradient-sphere about-sphere-2"
       />
+      
 
       <div className="container w-full h-full md:my-40 my-20 relative z-10">
         <TitleHeader title="About Me" number="01" text="Some info about me" />
@@ -68,7 +69,7 @@ const About = () => {
                 <div className="mt-5">
                   <h1 className="text-blue-50 md:text-5xl text-3xl">Stas Shokarev</h1>
                   <p className="md:text-2xl mt-2 text-white/60">
-                    Fullstack Developer specialising in React, Node.js, and AI-integrated web experiences. Passionate about performance, modern CSS, and shipping products that scale.
+                    Fullstack Developer specialising in React, Node.js, WordPress, and AI-integrated web experiences. Passionate about performance, modern CSS, and shipping products that scale.
                   </p>
                 </div>
               </Card>
@@ -109,7 +110,7 @@ const About = () => {
                     </h1>
                   </div>
                   <p className="md:text-xl max-w-96 animated-text text-white/55 leading-relaxed">
-                    Full Stack Developer specialising in React, Node.js, and modern CSS frameworks. Building fast, accessible, and scalable web products.
+                    Full Stack Developer specialising in React, Node.js, WordPress, and modern CSS frameworks. Building fast, accessible, and scalable web products.
                   </p>
                 </div>
               </Card>
