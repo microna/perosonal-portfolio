@@ -117,7 +117,7 @@ const About = () => {
             </div>
 
             {/* ── DevOps card ── */}
-            <div id="card" className="md:col-span-6 col-span-12 row-span-3">
+            <div id="card" className="md:col-span-3 col-span-12 row-span-3">
               <Card>
                 <div className="flex flex-col h-full justify-center gap-3">
                   <div className="flex items-center gap-3">
@@ -130,6 +130,25 @@ const About = () => {
                   </div>
                   <p className="md:text-xl max-w-96 animated-text text-white/55 leading-relaxed">
                     CI/CD pipelines, containerised deployments with Docker, and cloud infrastructure on AWS and DigitalOcean. Built for scale, monitored for uptime.
+                  </p>
+                </div>
+              </Card>
+            </div>
+
+            {/* ── WordPress card ── */}
+            <div id="card" className="md:col-span-3 col-span-12 row-span-3">
+              <Card>
+                <div className="flex flex-col h-full justify-center gap-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg flex-center" style={{ background: "rgba(33,117,155,0.15)", border: "1px solid rgba(33,117,155,0.3)" }}>
+                      <img src="/images/wordpress.svg" alt="wordpress" className="w-4 h-4" />
+                    </div>
+                    <h1 className="gradient-title md:text-3xl text-2xl font-medium animated-text">
+                      WordPress
+                    </h1>
+                  </div>
+                  <p className="md:text-xl max-w-96 animated-text text-white/55 leading-relaxed">
+                    Custom WordPress themes, plugin development, and WooCommerce stores. Fast, SEO-friendly, and built to your spec.
                   </p>
                 </div>
               </Card>
